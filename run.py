@@ -54,6 +54,7 @@ if __name__ == "__main__":
     print("Batch size: " + str(args.bsize))
 
     data = byIndex(table, entities, relations)
+    print( len(data.item()) )
     train, test = kfold(data, args.folds)
 
     param = Parameters(model=args.model, lmbda=args.lmbda, k=args.k, lr=args.lr,

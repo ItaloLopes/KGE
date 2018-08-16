@@ -37,8 +37,8 @@ class Triples(object):
 
   def __init__(self, data):
     data = dict(data)
-    self.indexes = np.array(data.keys()).astype(np.int64)
-    self.values = np.array(data.values()).astype(np.float32)
+    self.indexes = np.array(list(data.keys()), dtype=np.int64)
+    self.values = np.array(list(data.values()), dtype=np.float32)
 
 class Parameters(object):
 

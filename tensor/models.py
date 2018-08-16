@@ -2,8 +2,8 @@ import theano
 import theano.tensor as T
 import downhill
 
-from batching import *
-from tools import *
+from .batching import *
+from .tools import *
 
 theano.config.floatX = 'float32'
 theano.config.mode = 'FAST_RUN'

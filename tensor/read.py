@@ -1,7 +1,7 @@
 import numpy as np
 
 from rdflib.graph import Graph
-from tools import *
+from .tools import *
 
 def utf8(lst):
   return [unicode(elem).encode('utf-8') for elem in lst]
@@ -39,13 +39,13 @@ def byIndex(table, entities, relations):
   for s, p, o in table:
     s, p, o = entities.index(s), relations.index(p), entities.index(o)
     data[(s, p, o)] = 1
-
   return np.array(data.items())
 
 def kfold(data, folds=10):
-
-  idx = np.repeat(range(folds), int(len(data)/folds))
-  data = data[0:len(idx),:]
+  dataItem_list = list(data.item())
+  idx = np.repeat(range(folds), int(len( dataItem_list )/folds))
+  dataItem_list = np.array(dataItem_list)
+  data = dataItem_list[0:len(idx),:]
 
   train = [Triples(data[(idx != i),:]) for i in range(folds)]
   test = [Triples(data[idx == i,:]) for i in range(folds)]

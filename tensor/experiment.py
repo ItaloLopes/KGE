@@ -1,7 +1,7 @@
-import models
 import numpy as np
+import importlib  
 
-from evaluation import *
+from .evaluation import *
 
 class Experiment(object):
 
@@ -13,7 +13,7 @@ class Experiment(object):
     self.entities = entities
     self.relations = relations
 
-    self.model = vars(models)[param.model]()
+    self.model = getattr(importlib.import_module(".models", package="tensor"), param.model)()
     self.scorer = Scorer(train, test)
     self.param = param
 

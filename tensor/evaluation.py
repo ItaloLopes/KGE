@@ -1,4 +1,4 @@
-from tools import *
+from .tools import *
 
 class Scorer(object):
 

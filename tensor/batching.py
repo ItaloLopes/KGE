@@ -6,6 +6,7 @@ class Batch(object):
     self.data = data
     self.bsize = bsize
     self.entities = entities
+    print(entities)
     self.nsize = nsize
 
     self.indexes = self.data.indexes
