@@ -30,7 +30,8 @@ def measures(rank):
   print("MRR\tH@1\tH@3\tH@10")
   print("%0.3f\t%0.3f\t%0.3f\t%0.3f" % \
     (mrr, h1, h3, h10))
-
+  with open('evaluation.txt', 'a+') as file:
+    file.write(f'MRR:{mrr};H@1:{h1};H@3:{h3};H@10:{h10}\n')
   return (mrr, h1, h3, h10)
 
 class Triples(object):

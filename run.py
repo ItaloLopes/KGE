@@ -61,7 +61,11 @@ if __name__ == "__main__":
       epoch=args.epoch, bsize=args.bsize, nsize=args.nsize)
 
     m = []
+    with open('evaluation.txt', 'w') as file:
+      file.write(f'{args.model}\n')
     for i in range(args.folds):
+      with open('evaluation.txt', 'a+') as file:
+        file.write(f'Fold {str(i+1)}\n')
       print("Fold " + str(i+1) + ":")
       exp = Experiment(train[i], test[i], entities, relations, param)
       exp.evaluation()
