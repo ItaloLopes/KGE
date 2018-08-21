@@ -31,7 +31,7 @@ The output is the main information about the dataset, the stochastic gradient de
 0.713	0.619	0.803	0.823
 ```
 
-The best model generated after the cross-validation execution will be exported in the main folder with the name `model.txt`. To evaluate a new data, you should call the prediction function with the full path of the test data:
+The best model generated after the cross-validation execution and the evaluation measures will be, respectively, exported in the main folder with the names `model.txt` and `evaluation.txt`. To evaluate a new data, you should call the prediction function with the full path of the test data:
 
 ```
 python run.py prediction --data /tmp/wn18k.txt
