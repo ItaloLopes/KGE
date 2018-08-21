@@ -86,6 +86,8 @@ if __name__ == "__main__":
     print("Negatives ratio: " + str(m.param.nsize))
     print("Batch size: " + str(m.param.bsize))
 
-    test = Triples(byIndex(table, m.entities, m.relations))
+    data = byIndex(table, m.entities, m.relations) 
+    data = list(data.item())
+    test = Triples( data )
     res = m.prediction(test)
     np.savetxt("out.csv", res)
