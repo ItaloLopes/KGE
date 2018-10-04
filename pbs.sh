@@ -6,9 +6,8 @@ module load python
 module load cuda-toolkit/8.0.44
 module load cudnn/5.1
 
-export PATH="/mnt/nfs/home/lpfgarcia/conda/bin:$PATH"
-export DEVICE=cuda0
+export THEANO_FLAGS='device=cuda0'
 
-cd /mnt/nfs/home/lpfgarcia/KGE/
-python run.py evaluation --model $model --data $data --k $k --epoch $epoch --folds $folds > $model.$data.$k.$epoch.$folds.log
+cd /mnt/nfs/home/ItaloLO/KGE/
+python3 run.py evaluation --model Complex --data datasets/wn18.txt --k 200 --epoch 1000 --folds 5
 
